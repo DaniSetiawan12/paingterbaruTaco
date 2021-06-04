@@ -2,7 +2,7 @@ package Server;
 
 public class BaseURL {
 
-        public static String baseUrl = "http://192.168.18.86:10/";
+        public static String baseUrl = "http://192.168.18.9:10/";
 
 
         //input history

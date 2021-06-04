@@ -23,6 +23,7 @@
             android:textColorHint="#BDBDBD"
             android:textColor="#424242"
             android:id="@+id/edtSearch"
+            android:paddingLeft="15dp"
             android:layout_gravity="right"
             android:drawableTint="@color/colorPrimaryDark"
             android:background="@drawable/rounded_edittext"

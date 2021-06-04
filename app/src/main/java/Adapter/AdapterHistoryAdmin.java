@@ -60,8 +60,8 @@ public class AdapterHistoryAdmin extends BaseAdapter {
         TextView namaTaco = (TextView) convertView.findViewById(R.id.txtNamaTaco);
         TextView Status = (TextView) convertView.findViewById(R.id.edtStatus);
         TextView Tanggal = (TextView) convertView.findViewById(R.id.edtTanggal);
-        namaLengkap = sp.getString(NamaLengkap, "");
-        namaTaco.setText(namaLengkap);
+//        namaLengkap = sp.getString(NamaLengkap, "");
+        namaTaco.setText(item.get(position).getUser());
         Status.setText(item.get(position).getStatus());
         Tanggal.setText(item.get(position).getTanggal());
         return convertView;

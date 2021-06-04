@@ -7,6 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,8 +29,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Adapter.AdapterHistory;
+import Adapter.AdapterHistoryAdmin;
+import Admin.historyAdmin;
 import Model.ModelHistory;
 import Server.BaseURL;
 
@@ -48,6 +54,8 @@ public class History extends AppCompatActivity {
 
     TextView total;
 
+    EditText edtSearch;
+
     SharedPreferences sp;
     public static final String USER_PREF = "USER_PREF" ;
     public static final String userName = "userName";
@@ -65,6 +73,7 @@ public class History extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
+        edtSearch = (EditText) findViewById(R.id.edtSearch);
         sp = getSharedPreferences(USER_PREF, Context.MODE_PRIVATE);
         idUser = sp.getString(ID, "");
 
@@ -76,6 +85,7 @@ public class History extends AppCompatActivity {
         list.setAdapter(adapter);
 
         getHistory();
+        cari();
 
     }
 
@@ -99,10 +109,12 @@ public class History extends AppCompatActivity {
                                 final String _id = jsonObject.getString("_id");
                                 final String status = jsonObject.getString("status");
                                 final String tgl = jsonObject.getString("created_at");
+                                final String namaUser = jsonObject.getString("namaUser");
 
                                 history.setId(_id);
                                 history.setStatus(status);
                                 history.setTanggal(tgl);
+                                history.setUser(namaUser);
 
                                 newsList.add(history);
                             }
@@ -130,5 +142,31 @@ public class History extends AppCompatActivity {
         Intent i = new Intent(History.this, Menu_Pengguna.class);
         startActivity(i);
         finish();
+    }
+
+    public void cari(){
+        edtSearch.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {}
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            public void onTextChanged(CharSequence query, int start, int before, int count) {
+
+                query = query.toString().toLowerCase();
+
+                final List<ModelHistory> filteredList = new ArrayList<ModelHistory>();
+
+                for (int i = 0; i < newsList.size(); i++) {
+
+                    final String text = newsList.get(i).getUser().toLowerCase();
+                    if (text.contains(query)) {
+                        filteredList.add(newsList.get(i));
+                    }
+                }
+                adapter = new AdapterHistory(History.this, filteredList, sp);
+                list.setAdapter(adapter);
+            }
+        });
     }
 }

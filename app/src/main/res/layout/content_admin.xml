@@ -41,8 +41,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="-"
-                    android:gravity=""
+                    android:text="dadadad"
+                    android:textColor="@color/md_white_1000"
                     android:textAllCaps="false"
                     android:textSize="18dp"
                     android:textStyle="bold" />

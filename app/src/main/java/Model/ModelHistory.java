@@ -2,7 +2,15 @@ package Model;
 
 public class ModelHistory {
 
-    String id, status, tanggal;
+    String id, status, tanggal, user;
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     public String getId() {
         return id;

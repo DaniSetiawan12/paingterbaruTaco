@@ -7,6 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Adapter.AdapterHistoryAdmin;
 import Model.ModelHistory;
@@ -76,6 +81,7 @@ public class historyAdmin extends AppCompatActivity {
         adapter = new AdapterHistoryAdmin(historyAdmin.this, newsList, sp);
         list.setAdapter(adapter);
         getHistory();
+        cari();
     }
 
     private void getHistory() {
@@ -95,11 +101,13 @@ public class historyAdmin extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 final ModelHistory history = new ModelHistory();
 
-                                // final String _id = jsonObject.getString("_id");
+                                 final String _id = jsonObject.getString("_id");
                                 final String status = jsonObject.getString("status");
+                                final String namaUser = jsonObject.getString("namaUser");
                                 final String tgl = jsonObject.getString("created_at");
 
-                                //history.setId(_id);
+                                history.setId(_id);
+                                history.setUser(namaUser);
                                 history.setStatus(status);
                                 history.setTanggal(tgl);
 
@@ -126,5 +134,32 @@ public class historyAdmin extends AppCompatActivity {
         Intent i = new Intent(historyAdmin.this, menu_Admin.class);
         startActivity(i);
         finish();
+    }
+
+
+    public void cari(){
+        edtSearch.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {}
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            public void onTextChanged(CharSequence query, int start, int before, int count) {
+
+                query = query.toString().toLowerCase();
+
+                final List<ModelHistory> filteredList = new ArrayList<ModelHistory>();
+
+                for (int i = 0; i < newsList.size(); i++) {
+
+                    final String text = newsList.get(i).getUser().toLowerCase();
+                    if (text.contains(query)) {
+                        filteredList.add(newsList.get(i));
+                    }
+                }
+                adapter = new AdapterHistoryAdmin(historyAdmin.this, filteredList, sp);
+                list.setAdapter(adapter);
+            }
+        });
     }
 }
