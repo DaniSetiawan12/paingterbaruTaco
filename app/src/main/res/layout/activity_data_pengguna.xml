@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_grey_200"
+    android:orientation="vertical"
+    tools:context=".DataPengguna">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:id="@+id/linearSearch"
+        android:layout_height="50dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/edtSearch"
+            android:drawableTint="@color/colorPrimaryDark"
+            android:drawableLeft="@drawable/ic_search"
+            android:hint="Cari Nama Pesantren..."/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/array_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:divider="@null"
+        android:layout_below="@+id/linearSearch"
+        android:dividerHeight="5.0sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/backgroundgradien"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@color/md_blue_grey_50"
+            android:text="Copy Right @Dani Setiawan" />
+    </LinearLayout>
+
+</RelativeLayout>

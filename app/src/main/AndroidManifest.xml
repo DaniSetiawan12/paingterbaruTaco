@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.teco">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logoo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Teco"
+        android:usesCleartextTraffic="true">
+        <activity android:name="Admin.admin_Pintu"></activity>
+        <activity android:name="Admin.admin_Gerbang" />
+        <activity android:name="Admin.historyAdmin" />
+        <activity android:name="Pengguna.History" />
+        <activity android:name="Admin.menu_Admin" /> <!-- <activity android:name="Model.Model_Taco" /> -->
+        <activity android:name=".KonfirmasiSandi" /> <!-- <activity android:name=".KonfirmasiSandi" /> -->
+        <activity android:name="Admin.DataAdmin" />
+        <activity android:name=".DataPengguna" />
+        <activity android:name="User.Registrasi" />
+        <activity android:name="User.MenuLogin" />
+        <activity android:name="Pengguna.Menu_Pengguna" />
+        <activity android:name="Pengguna.Menu_Pintu" />
+        <activity android:name="Pengguna.Menu_Gerbang" />
+        <activity android:name="Pengguna.Tentang" />
+        <activity android:name=".Flashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

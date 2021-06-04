@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_grey_200"
+    android:orientation="vertical"
+    tools:context="Admin.DataAdmin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:id="@+id/linearSearch"
+        android:layout_height="50dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/edtSearch"
+            android:drawableLeft="@drawable/ic_search"
+            android:hint="Cari Nama Penguna"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/array_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:divider="@null"
+        android:layout_below="@+id/linearSearch"
+        android:dividerHeight="5.0sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/backgroundgradien"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:text="Total Akses Door Lock"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="UseAppTint"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="Total Akses Door Lock"
+                    android:drawableLeft="@drawable/kunci"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="UseAppTint"/>
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+</RelativeLayout>
