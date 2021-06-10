@@ -6,7 +6,7 @@ public class BaseURL {
 
 
         //input history
-        public static String hapusHistory = baseUrl + "history/hapus/";
+        public static String hapusHistory = baseUrl + "histori/hapus/";
         public static String history = baseUrl + "perintah/lihat-history/";
         public static String historyall = baseUrl + "perintah/lihat-history";
 

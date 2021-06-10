@@ -101,7 +101,7 @@ public class historyAdmin extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 final ModelHistory history = new ModelHistory();
 
-                                 final String _id = jsonObject.getString("_id");
+                                final String _id = jsonObject.getString("_id");
                                 final String status = jsonObject.getString("status");
                                 final String namaUser = jsonObject.getString("namaUser");
                                 final String tgl = jsonObject.getString("created_at");
